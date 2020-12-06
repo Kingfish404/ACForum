@@ -1,4 +1,4 @@
-# ACFourm
+# ACForum
 
 前端基于vue，使用buefy组件库，后端基于Django的在线论坛
 
