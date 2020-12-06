@@ -21,8 +21,17 @@ vue基础：
 
 项目管理用的CLI文档：https://cli.vuejs.org/zh/
 
+vue框架Element-ui:
+文档：https://element.eleme.cn/#/zh-CN/component/installation
+
 vue框架buefy：
 文档：https://buefy.org/documentation/start
+
+网络请求框架axios:
+文档：https://cn.vuejs.org/v2/cookbook/using-axios-to-consume-apis.html
+
+网络请求框架qs:
+文档：https://www.npmjs.com/package/qs
 
 ## 后端
 
