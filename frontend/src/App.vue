@@ -1,7 +1,7 @@
 <template>
 <div id="App">
   <div id="NavMenu">
-    <NavMenu />
+    <NavMenu msg="1123123123"/>
   </div>
   <router-view></router-view>
 </div>
@@ -10,10 +10,11 @@
 <script>
 import NavMenu from './components/NavMenu.vue'
 
+
 export default {
   name: 'App',
   components: {
-     NavMenu
+     NavMenu,
   },
   methods: {
       toHomepage () {
@@ -27,6 +28,7 @@ export default {
 #NavMenu{
   padding-right:300px;
   padding-left:300px;
+  margin-bottom: 25px;
 }
 
 </style>

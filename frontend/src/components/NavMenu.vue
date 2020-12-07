@@ -1,5 +1,6 @@
 <template>
     <b-navbar>
+        <h1>{{  }}</h1>
         <template slot="brand">
             <b-navbar-item tag="router-link" :to="{ path: '/' }">
                 <img

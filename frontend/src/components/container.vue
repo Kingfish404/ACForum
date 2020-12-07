@@ -1,57 +1,82 @@
 <template>
-    <div>
-        <div id="Tabs">
-            <b-button type="is-link is-light" class="tab">
-            <a href="/?tab=tech">技术</a>
-            </b-button>
-        
-            <b-button type="is-link is-light" class="tab">
-            <a href="/?tab=creative">创意</a>
-            </b-button>
-
-            <b-button type="is-link is-light" class="tab">
-            <a href="/?tab=play">好玩</a>
-            </b-button>
-
-            <b-button type="is-link is-light" class="tab">
-            <a href="/?tab=apple">Apple</a>
-            </b-button>
-
-            <b-button type="is-link is-light" class="tab">
-            <a href="/?tab=jobs">酷工作</a>
-            </b-button>
-
-            <b-button type="is-link is-light" class="tab">
-            <a href="/?tab=deals">交易</a>
-            </b-button>
-
-            <b-button type="is-link is-light" class="tab">
-            <a href="/?tab=city">城市</a>
-            </b-button>
-
-            <b-button type="is-link is-light" class="tab">
-            <a href="/?tab=qna">问与答</a>
-            </b-button>
-
-            <b-button type="is-link is-light" class="tab">
-            <a href="/?tab=hot">最热</a>
-            </b-button>
-
-            <b-button type="is-link is-light" class="tab">
-            <a href="/?tab=all">全部</a>
-            </b-button>
-        </div>
+    <div id="tabs">
+        <b-tabs v-model="技术" multiline="multiline" type="is-boxed">
+            <template v-for="tab in tabs">
+                <b-tab-item
+                    v-if="tab.displayed"
+                    :key="tab.catalogName"
+                    :value="tab.catalogName"
+                    :label="tab.catalogName">
+                     <ContainerTable />
+                </b-tab-item>
+            </template>
+        </b-tabs>
     </div>
 </template>
 
+<script>
+import ContainerTable from './ContainerTable'
+    export default {
+        data() {
+            return {
+                 
+            }
+        },
+        components: {
+            ContainerTable
+       },
+        computed: {
+            baseTabs() {
+                return [                    
+                    {
+                       displayed:true,
+                       catalogName: '技术',
+                       topicArr:[
+                           {
+                               name: '用 Python 做数据分析或数据挖掘需要学习并使用“数据结构和算法”相关的知识么？',
+                               topicID: '1'
+                           },
+
+                           {
+                               name: '准备搞个 ARM 芯片的 Linux 平板电脑，有没有人感兴趣？',
+                               topicID: '2'
+                           },
+
+                           {
+                               name: '小团队 适合用 k8s +Spring cloud +微服务吗?',
+                               topicID: '3'
+                           }
+                       ]
+                    },
+                     {
+                       displayed:true,
+                       catalogName: '创意',
+                       topicArr:[
+                           {
+                               name: '用 Python 做数据分析或数据挖掘需要学习并使用“数据结构和算法”相关的知识么？',
+                               topicID: '1'
+                           }
+                       ]
+                    }
+
+                    
+                   
+                ]
+            },
+
+            tabs() {
+                const tabs = [...this.baseTabs]
+                return tabs
+            }
+            
+        }
+    }
+</script>
+
 <style>
-#Tabs{
-    padding-left:300px;
-    padding-right:400px;
+#tabs{
+    padding-left: 300px;
+    padding-right:500px;
 }
 
-.tab{
-    margin-left: 1px;
-    margin-right:1px;
-}
 </style>
