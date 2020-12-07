@@ -33,7 +33,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
     frontend >
     |- node_modules                               # npm 加载的项目依赖模块
-    |- public	                                  # 静态文件夹                   
+    |- public	                              # 静态文件夹                   
          |- index.htmll                           # 首页入口文件，你可以添加一些 meta 信息或统计代码啥的。
     |- src                                        # 这里是我们要开发的目录，基本上要做的事情都在这个目录里。里面包含了几个目录及文件：
          |- components                            # 目录里面放了一个组件文件
