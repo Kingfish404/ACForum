@@ -1,6 +1,6 @@
 <template>
   <div id="login-box">
-    <h1>Register</h1>
+    <h1>注册</h1>
     <div class="input-box">
     <b-field id="input">
       <b-input v-model="username" 
@@ -67,26 +67,8 @@ export default {
 };
 </script>
 <style scoped>
-#login-box {
-  background-color: #00000068;
-  border-radius: 13px;
-  text-align: center; 
-  margin: 0px auto;
-  margin-top: 175px;
-  width: 350px;
-  height: 400px;
-}
-#login-box h1 {
-  font-size:35px;
-  padding-top: 20px;
-  color: #ccc;
-}
-.input-box {
-  margin-top: 35px;
-  text-align:center;
-}
-#input {
-    width:250px;
-    margin:0px auto;
+.input-box{
+  margin-top:20px;
+  margin-bottom:20px;
 }
 </style>
