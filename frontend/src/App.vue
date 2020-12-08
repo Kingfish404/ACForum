@@ -1,7 +1,7 @@
 <template>
 <div id="App">
   <div id="NavMenu">
-    <NavMenu msg="1123123123"/>
+    <NavMenu/>
   </div>
   <router-view></router-view>
 </div>
@@ -25,10 +25,15 @@ export default {
 </script>
 
 <style>
+#App{
+  background-color:#DDDDDD;
+}
+
 #NavMenu{
   padding-right:300px;
   padding-left:300px;
   margin-bottom: 25px;
+  background-color: white;
 }
 
 </style>

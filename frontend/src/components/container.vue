@@ -7,7 +7,7 @@
                     :key="tab.catalogName"
                     :value="tab.catalogName"
                     :label="tab.catalogName">
-                     <ContainerTable />
+                     <ContainerTable :Topic="tab.topicArr"></ContainerTable>
                 </b-tab-item>
             </template>
         </b-tabs>
@@ -45,6 +45,178 @@ import ContainerTable from './ContainerTable'
                            {
                                name: '小团队 适合用 k8s +Spring cloud +微服务吗?',
                                topicID: '3'
+                           },
+                           {
+                               name: '小团队 适合用 k8s +Spring cloud +微服务吗?',
+                               topicID: '3'
+                           },
+                           {
+                               name: '小团队 适合用 k8s +Spring cloud +微服务吗?',
+                               topicID: '3'
+                           },
+                           {
+                               name: '小团队 适合用 k8s +Spring cloud +微服务吗?',
+                               topicID: '3'
+                           },
+                           {
+                               name: '小团队 适合用 k8s +Spring cloud +微服务吗?',
+                               topicID: '3'
+                           },
+                           {
+                               name: '小团队 适合用 k8s +Spring cloud +微服务吗?',
+                               topicID: '3'
+                           },
+                           {
+                               name: '小团队 适合用 k8s +Spring cloud +微服务吗?',
+                               topicID: '3'
+                           },
+                           {
+                               name: '小团队 适合用 k8s +Spring cloud +微服务吗?',
+                               topicID: '3'
+                           },
+                           {
+                               name: '小团队 适合用 k8s +Spring cloud +微服务吗?',
+                               topicID: '3'
+                           },
+                           {
+                               name: '小团队 适合用 k8s +Spring cloud +微服务吗?',
+                               topicID: '3'
+                           },
+                           {
+                               name: '小团队 适合用 k8s +Spring cloud +微服务吗?',
+                               topicID: '3'
+                           },
+                           {
+                               name: '小团队 适合用 k8s +Spring cloud +微服务吗?',
+                               topicID: '3'
+                           },
+                           {
+                               name: '小团队 适合用 k8s +Spring cloud +微服务吗?',
+                               topicID: '3'
+                           },
+                           {
+                               name: '小团队 适合用 k8s +Spring cloud +微服务吗?',
+                               topicID: '3'
+                           },
+                           {
+                               name: '小团队 适合用 k8s +Spring cloud +微服务吗?',
+                               topicID: '3'
+                           },
+                           {
+                               name: '小团队 适合用 k8s +Spring cloud +微服务吗?',
+                               topicID: '3'
+                           },
+                           {
+                               name: '小团队 适合用 k8s +Spring cloud +微服务吗?',
+                               topicID: '3'
+                           },
+                           {
+                               name: '小团队 适合用 k8s +Spring cloud +微服务吗?',
+                               topicID: '3'
+                           },
+                           {
+                               name: '小团队 适合用 k8s +Spring cloud +微服务吗?',
+                               topicID: '3'
+                           },
+                           {
+                               name: '小团队 适合用 k8s +Spring cloud +微服务吗?',
+                               topicID: '3'
+                           },
+                           {
+                               name: '小团队 适合用 k8s +Spring cloud +微服务吗?',
+                               topicID: '3'
+                           },
+                           {
+                               name: '小团队 适合用 k8s +Spring cloud +微服务吗?',
+                               topicID: '3'
+                           },
+                           {
+                               name: '小团队 适合用 k8s +Spring cloud +微服务吗?',
+                               topicID: '3'
+                           },
+                           {
+                               name: '小团队 适合用 k8s +Spring cloud +微服务吗?',
+                               topicID: '3'
+                           },
+                           {
+                               name: '小团队 适合用 k8s +Spring cloud +微服务吗?',
+                               topicID: '3'
+                           },
+                           {
+                               name: '小团队 适合用 k8s +Spring cloud +微服务吗?',
+                               topicID: '3'
+                           },
+                           {
+                               name: '小团队 适合用 k8s +Spring cloud +微服务吗?',
+                               topicID: '3'
+                           },
+                           {
+                               name: '小团队 适合用 k8s +Spring cloud +微服务吗?',
+                               topicID: '3'
+                           },
+                           {
+                               name: '小团队 适合用 k8s +Spring cloud +微服务吗?',
+                               topicID: '3'
+                           },
+                           {
+                               name: '小团队 适合用 k8s +Spring cloud +微服务吗?',
+                               topicID: '3'
+                           },
+                           {
+                               name: '小团队 适合用 k8s +Spring cloud +微服务吗?',
+                               topicID: '3'
+                           },
+                           {
+                               name: '小团队 适合用 k8s +Spring cloud +微服务吗?',
+                               topicID: '3'
+                           },
+                           {
+                               name: '小团队 适合用 k8s +Spring cloud +微服务吗?',
+                               topicID: '3'
+                           },
+                           {
+                               name: '小团队 适合用 k8s +Spring cloud +微服务吗?',
+                               topicID: '3'
+                           },
+                           {
+                               name: '小团队 适合用 k8s +Spring cloud +微服务吗?',
+                               topicID: '3'
+                           },
+                           {
+                               name: '小团队 适合用 k8s +Spring cloud +微服务吗?',
+                               topicID: '3'
+                           },
+                           {
+                               name: '小团队 适合用 k8s +Spring cloud +微服务吗?',
+                               topicID: '3'
+                           },
+                           {
+                               name: '小团队 适合用 k8s +Spring cloud +微服务吗?',
+                               topicID: '3'
+                           },
+                           {
+                               name: '小团队 适合用 k8s +Spring cloud +微服务吗?',
+                               topicID: '3'
+                           },
+                           {
+                               name: '小团队 适合用 k8s +Spring cloud +微服务吗?',
+                               topicID: '3'
+                           },
+                           {
+                               name: '小团队 适合用 k8s +Spring cloud +微服务吗?',
+                               topicID: '3'
+                           },
+                           {
+                               name: '小团队 适合用 k8s +Spring cloud +微服务吗?',
+                               topicID: '3'
+                           },
+                           {
+                               name: '小团队 适合用 k8s +Spring cloud +微服务吗?',
+                               topicID: '3'
+                           },
+                           {
+                               name: '小团队 适合用 k8s +Spring cloud +微服务吗?',
+                               topicID: '3'
                            }
                        ]
                     },
@@ -57,10 +229,7 @@ import ContainerTable from './ContainerTable'
                                topicID: '1'
                            }
                        ]
-                    }
-
-                    
-                   
+                    }    
                 ]
             },
 
@@ -75,8 +244,10 @@ import ContainerTable from './ContainerTable'
 
 <style>
 #tabs{
-    padding-left: 300px;
-    padding-right:500px;
+    width:50%;
+    position:relative;
+    left:300px;
+    background-color: white;
 }
 
 </style>
