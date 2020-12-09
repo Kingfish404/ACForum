@@ -28,40 +28,12 @@
             <div class="cell2">
             <span class="gray">4条评论</span>
             <table cellpadding="0" cellspacing="0" border="0" width="100%">
-                <tr>
+                <tr v-for="(user,index) in usercomment" :key="index">
                     <td width="7" valign="top"></td>
                     <td width="auto" valign="top" align="left">
-                        <strong><a href="#">SingeeKing</a></strong>
+                        <strong><a href="#">{{user.username}}</a></strong>
                         <div class="sep5"></div>
-                        <div class="reply_content">Jetbrains系列IDE包括一下
-                            几个IDE，分别用于不同的语言，它们的设置大同小异，
-                            主要差异在于相关语言和开发包的设置。</div>
-                    </td>
-                </tr>
-                <tr>
-                    <td width="7" valign="top"></td>
-                    <td width="auto" valign="top" align="left">
-                        <strong><a href="#">Ma Baoguo</a></strong>
-                        <div class="sep5"></div>
-                        <div class="reply_content">不讲武德！</div>
-                    </td>
-                </tr>
-                <tr>
-                    <td width="7" valign="top"></td>
-                    <td width="auto" valign="top" align="left">
-                        <strong><a href="#">小明</a></strong>
-                        <div class="sep5"></div>
-                        <div class="reply_content">楼上你好！</div>
-                    </td>
-                </tr>
-                <tr>
-                    <td width="7" valign="top"></td>
-                    <td width="auto" valign="top" align="left">
-                        <strong><a href="#">一棵草</a></strong>
-                        <div class="sep5"></div>
-                        <div class="reply_content">The greatest test of courage on earth is to bear
-                             defeat without losing heart.世界上對勇氣的最大考驗是忍受失敗而不喪失信心。
-                             </div>
+                        <div class="reply_content">{{user.comment}}</div>
                     </td>
                 </tr>
             </table>
@@ -75,8 +47,25 @@ export default {
     name:"Content",
     data() {
         return {
-            
-        };
+            usercomment:[
+            {
+                username:'SingeeKing',
+                comment:'Jetbrains系列IDE包括一下几个IDE，分别用于不同的语言，它们的设置大同小异，主要差异在于相关语言和开发包的设置。'
+            },
+            {
+                username:'Ma Baoguo',
+                comment:'不讲武德'
+            },
+            {
+                username:'小明',
+                comment:'楼上你好！'
+            },
+            {
+                username:'一棵草',
+                comment:'The greatest test of courage on earth is to bear defeat without losing heart.世界上對勇氣的最大考驗是忍受失敗而不喪失信心。'
+            }
+        ]
+        }
     }
 }
 </script>
