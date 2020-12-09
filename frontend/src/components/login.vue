@@ -49,11 +49,11 @@ export default {
             }),
         }).then((res)=> {
             console.log(res.data);
-            if (res.data == 'pwderr'){
+            if (res.data.message == 'password error'){
                 alert('密码错误')
                 return 
             }
-            if (res.data == 'nouser'){
+            if (res.data.message == 'None User'){
                 alert('用户名不存在')
                 return 
             }
