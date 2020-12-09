@@ -9,7 +9,8 @@
                         </td>
                         <td width="10"></td>
                         <td width="auto" hight="auto" valign="middle">                    
-                            <a id="item_title" style="front-size:25px"><div style="font-size:20px">{{topic.title}}</div></a>
+                            <!-- <a id="item_title" style="front-size:25px"><div style="font-size:20px">{{topic.title}}</div></a> -->
+                            <router-link to="/content" id="item_title" style="front-size:25px"><div style="font-size:20px">{{topic.title}}</div></router-link>
                         </td>
                         <td width="200" hight="10">
                             <a id="username">{{topic.username}}</a><br>
@@ -22,8 +23,6 @@
     </div>    
 </template>
 
-
-     
 <script>
     export default {
         props:["Topic"],

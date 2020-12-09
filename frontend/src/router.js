@@ -3,16 +3,17 @@ import Router from 'vue-router'
 import Login from './components/login.vue'
 import SignUp from './components/SignUp.vue'
 import Container from './components/container.vue'
+import Content from './components/content.vue'
 
 Vue.use(Router)
 
 export default new Router({
-   routes:[
-   {
-      path:'/',
-      redirect:'/container'
-   },
-   {
+  routes: [
+    {
+      path: '/',
+      redirect: '/container'
+    },
+    {
       path: '/login',
       name: 'Login',
       component: Login
@@ -24,8 +25,13 @@ export default new Router({
     },
     {
       path: '/container',
-      name:'Container',
-      component:Container
-    }
-   ]
+      name: 'Container',
+      component: Container
+    },
+    {
+      path: '/content',
+      name: 'Content',
+      component: Content
+    },
+  ]
 })
