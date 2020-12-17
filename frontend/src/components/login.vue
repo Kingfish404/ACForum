@@ -16,11 +16,10 @@
             </b-input>
         </b-field>
     </div>
-    <div class="input-box">
-
+    <div class="input-box" style="display: flex;justify-content: space-between;align-items: center;">
         <b-button @click="toLogin()">Sign in</b-button>
+        <b-button @click="toRegister()">Register</b-button>
     </div>
-
   </div>
 </template>
 
@@ -30,12 +29,15 @@ import Qs from 'qs';
 
 export default {
   name: "SignIn",
-
   data() {
     return {
         username: "",
         password: "",
     };
+  },
+
+  components:{
+
   },
 
   methods: {
@@ -58,9 +60,19 @@ export default {
                 return 
             }
             alert('登录成功')
-
+            var user = {username:'',userID:''};
+            user.username = this.username;
+            this.username="";
+            this.password="";
+            var respond = Qs.parse(res.data);
+            user.userID = respond.data.userID;
+            this.$emit('showUser',user);
         })
     },
+    toRegister(){
+      document.getElementById("loginbox").style.display= "none";
+      document.getElementById("signupbox").style.display= "block";
+    }
   },
 };
 </script>

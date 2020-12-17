@@ -9,13 +9,16 @@
        <div id="Leftbar"></div>
        <div id="Rightbar">
          <div class="sep20"></div>
-         <div class="box">
+         <div class="box" id="signupbox" style="display:none">
            <signup></signup>
          </div>
-         <div class="sep20"></div>
-         <div class="box">
-           <login></login>   
+         <div class="box" id="loginbox" style="display:block">
+           <login @showUser="getUser"></login>   
          </div>
+         <div class="box" id="afterloginbox" style="display:none">
+           <afterlogin :user=this.user></afterlogin>  
+         </div>
+         <b-button @click="sendtopic()" class="box" id="sendtopic" style="display:none;width:100%">发布主题</b-button>
        </div>
        <div id="Main">
          <div class="sep20"></div>    
@@ -33,17 +36,32 @@
 import NavMenu from './components/NavMenu.vue'
 import login from './components/login.vue'
 import signup from './components/SignUp'
+import afterlogin from './components/afterlogin'
 
 export default {
   name: 'App',
+  data(){
+    return{
+      user:{}
+    }
+  },
+
   components: {
      NavMenu,
      login,
-     signup
+     signup,
+     afterlogin
   },
+
   methods: {
       toHomepage () {
         this.$router.push('/')
+    },
+    getUser(user){
+      this.user = user;
+      document.getElementById("loginbox").style.display= "none";
+      document.getElementById("afterloginbox").style.display= "block";
+      document.getElementById("sendtopic").style.display= "block";
     }
   }
 }

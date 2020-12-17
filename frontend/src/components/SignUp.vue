@@ -20,7 +20,7 @@
     <div class="input-box">
       <b-field id="input">
             <b-input type="password"
-             v-model="password1"
+                v-model="password1"
                 placeholder="Confirm Password"
                 password-reveal>
             </b-input>
@@ -59,7 +59,9 @@ export default {
             }),
         }).then((res)=> {
             console.log(res.data);
-            alert('注册成功')
+            alert('注册成功');
+            document.getElementById("signupbox").style.display= "none";
+            document.getElementById("loginbox").style.display= "block";
         })
       }
     },
