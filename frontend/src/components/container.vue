@@ -1,12 +1,11 @@
 <template>
     <div id="Tabs" class="inner">
-        <b-tabs v-model="技术" multiline="multiline" type="is-boxed">
-            <template v-for="tab in tabs">
+        <b-tabs multiline="multiline" type="is-boxed">
+            <template v-for="tab in tabss">
                 <b-tab-item id="table_item"
-                    v-if="tab.displayed"
-                    :key="tab.catalogName"
-                    :value="tab.catalogName"
-                    :label="tab.catalogName">
+                    :key="tab.categoryName"
+                    :value="tab.categoryName"
+                    :label="tab.categoryName">
                      <ContainerTable :Topic="tab.topicArr"></ContainerTable>
                 </b-tab-item>
             </template>
@@ -16,108 +15,32 @@
 
 <script>
 import ContainerTable from './ContainerTable'
+import axios from "axios";
+import Qs from 'qs';
     export default {
         data() {
             return {
-                 
+                tabss:''
             }
         },
         components: {
             ContainerTable
        },
-        computed: {
-            baseTabs() {
-                return [                    
-                    {
-                       displayed:true,
-                       catalogName: '技术',
-                       topicArr:[
-                           {
-                               title:'自用了一年多的 JetBrains IDE',
-                               topicID:'1',
-                               username: 'wk',
-                               data:'2020-12-8'
-                           },
-                            {
-                               title:'自用了一年多的 JetBrains IDE',
-                               topicID:'2',
-                               username: 'wk',
-                               data:'2020-12-8'
-                           },
-                            {
-                               title:'自用了一年多的 JetBrains IDE',
-                               topicID:'3',
-                               username: 'wk',
-                               data:'2020-12-8'
-                           },
-                            {
-                               title:'自用了一年多的 JetBrains IDE',
-                               topicID:'4',
-                               username: 'wk',
-                               data:'2020-12-8'
-                           },
-                            {
-                               title:'自用了一年多的 JetBrains IDE',
-                               topicID:'5',
-                               username: 'wk',
-                               data:'2020-12-8'
-                           },
-                            {
-                               title:'自用了一年多的 JetBrains IDE',
-                               topicID:'6',
-                               username: 'wk',
-                               data:'2020-12-8'
-                           },
-                            {
-                               title:'自用了一年多的 JetBrains IDE',
-                               topicID:'7',
-                               username: 'wk',
-                               data:'2020-12-8'
-                           },
-                           {
-                               title:'自用了一年多的 JetBrains IDE',
-                               topicID:'7',
-                               username: 'wk',
-                               data:'2020-12-8'
-                           },
-                           {
-                               title:'自用了一年多的 JetBrains IDE',
-                               topicID:'7',
-                               username: 'wk',
-                               data:'2020-12-8'
-                           },
-                           {
-                               title:'自用了一年多的 JetBrains IDE',
-                               topicID:'7',
-                               username: 'wk',
-                               data:'2020-12-8'
-                           },
-                           {
-                               title:'自用了一年多的 JetBrains IDE',
-                               topicID:'7',
-                               username: 'wk',
-                               data:'2020-12-8'
-                           }
-                       ]
-                    },
-                     {
-                       displayed:true,
-                       catalogName: '创意',
-                       topicArr:[
-                           {
-                               name: '用 Python 做数据分析或数据挖掘需要学习并使用“数据结构和算法”相关的知识么？',
-                               topicID: '1'
-                           }
-                       ]
-                    }    
-                ]
-            },
-
-            tabs() {
-                const tabs = [...this.baseTabs]
-                return tabs
-            }
-            
+        mounted() {
+            this.gettabs();
+        },
+        methods:{
+            gettabs(){
+                axios({
+                    method: "get",
+                    url: "https://sql.tian999.top/getCatalog/",
+                }).then((res)=> {
+                    var respond = Qs.parse(res.data.catalog);
+                    this.tabss = respond;
+                    console.log(this.tabss);
+                })
+                // return this.tabss;
+            }    
         }
     }
 </script>
