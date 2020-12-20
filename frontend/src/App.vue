@@ -18,7 +18,9 @@
          <div class="box" id="afterloginbox" style="display:none">
            <afterlogin :user=this.user></afterlogin>  
          </div>
-         <b-button @click="sendtopic()" class="box" id="sendtopic" style="display:none;width:100%">发布主题</b-button>
+         <router-link to="/sendMsg">
+          <b-button @click="sendtopic()" class="box" id="sendtopic" style="display:none;width:100%">发布主题</b-button>
+         </router-link>
        </div>
        <div id="Main">
          <div class="sep20"></div>    

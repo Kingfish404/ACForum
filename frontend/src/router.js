@@ -4,6 +4,7 @@ import Login from './components/login.vue'
 import SignUp from './components/SignUp.vue'
 import Container from './components/container.vue'
 import Content from './components/content.vue'
+import sendmsg from './components/sendMsg.vue'
 
 Vue.use(Router)
 
@@ -33,5 +34,10 @@ export default new Router({
       name: 'Content',
       component: Content
     },
+    {
+      path: '/sendMsg',
+      name: 'SendMsg',
+      component: sendmsg
+    }
   ]
 })
