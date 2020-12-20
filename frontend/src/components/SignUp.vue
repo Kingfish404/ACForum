@@ -26,8 +26,9 @@
             </b-input>
         </b-field>
     </div>
-    <div class="input-box">
+    <div class="input-box inputButton">
         <b-button @click="toLogin()">Register</b-button>
+        <b-button @click="goLogin()">Sing In</b-button>
     </div>
     
   </div>
@@ -69,12 +70,22 @@ export default {
         })
       }
     },
+
+    goLogin(){
+        document.getElementById("signupbox").style.display= "none";
+        document.getElementById("loginbox").style.display= "block";
+    }
   },
 };
 </script>
 <style scoped>
 .input-box{
-  margin-top:20px;
-  margin-bottom:20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.inputButton{
+  display: flex;
+  justify-content: space-between;
+  align-items: center
 }
 </style>

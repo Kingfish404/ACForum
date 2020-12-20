@@ -12,9 +12,9 @@
                             <!-- <a id="item_title" style="front-size:25px"><div style="font-size:20px">{{topic.title}}</div></a> -->
                             <router-link to="/content" id="item_title" style="front-size:25px"><div style="font-size:20px">{{topic.title}}</div></router-link>
                         </td>
-                        <td width="200" hight="10">
-                            <a id="username">{{topic.username}}</a><br>
-                            发布日期：<a id="data">{{topic.data}}</a>
+                        <td width="100" >
+                            <a id="username">{{topic.userName}}</a><br>
+                            <a id="data">{{topic.date}}</a>
                         </td>  
                     </tr>
                 </tbody>               
@@ -30,7 +30,8 @@
             return {
 
             }
-        }
+        },
+        // omounted
     }
 </script>
 

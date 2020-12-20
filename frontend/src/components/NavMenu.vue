@@ -25,23 +25,5 @@
                 </b-navbar-item>
             </b-navbar-dropdown>
         </template>
-
-        <template slot="end">
-            <b-navbar-item tag="div">
-                <div class="buttons">
-                    <a class="button is-light">
-                        <router-link to='/signup'>
-                        <strong>注册</strong>
-                        </router-link>
-                        
-                    </a>
-                    <a class="button is-light">
-                        <router-link to='/login'>
-                        <strong>登录</strong>
-                        </router-link> 
-                    </a>
-                </div>
-            </b-navbar-item>
-        </template>
     </b-navbar>
 </template>
