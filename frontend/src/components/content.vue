@@ -4,36 +4,26 @@
             <router-link to="/"><a href="#">ACFourm</a></router-link>
             <span class="chevron">&nbsp;›&nbsp;</span>
             <a href="#">技术</a>
-            <h3>自从用了一年多的Jet Brains IDE</h3>
-            <small class="gray"><a href="#">wk </a>发布日期：2020-12-8</small>
+            <h3>{{topic.title}}</h3>
+            <small class="gray"><a href="#">{{topic.userName}}</a>发布日期：{{topic.date}}</small>
         </div>
         <div class="cell2">
             <div class="topic_content">
-                <p>用 Vue.js + Vue Router 创建单页应用，是非常简单的。使用 Vue.js ，
-                    我们已经可以通过组合组件来组成应用程序，当你要把 Vue Router 添加
-                    进来，我们需要做的是，将组件 (components) 映射到路由 (routes)，
-                    然后告诉 Vue Router 在哪里渲染它们。</p>
-                <ul>
-                    <li>嵌套的路由/视图表</li>
-                    <li>模块化的、基于组件的路由配置</li>
-                    <li>路由参数、查询、通配符</li>
-                    <li>基于 Vue.js 过渡系统的视图过渡效果</li>
-                    <li>带有自动激活的 CSS class 的链接</li>
-                </ul>
+                <p>{{topic.description}}</p>
             </div>
         </div>
         <div class="sep10"></div>
 
         <div class="box">
             <div class="cell2">
-            <span class="gray">4条评论</span>
+            <span class="gray">{{topic.commentArr.length}}条评论</span>
             <table cellpadding="0" cellspacing="0" border="0" width="100%">
-                <tr v-for="(user,index) in usercomment" :key="index">
+                <tr v-for="(comment,index) in topic.commentArr" :key="index">
                     <td width="7" valign="top"></td>
                     <td width="auto" valign="top" align="left">
-                        <strong><a href="#">{{user.username}}</a></strong>
+                        <strong><a href="#">{{comment.userName}}&nbsp;&nbsp;{{comment.date}}</a></strong>
                         <div class="sep5"></div>
-                        <div class="reply_content">{{user.comment}}</div>
+                        <div class="reply_content">{{comment.content}}</div>
                     </td>
                 </tr>
             </table>
@@ -43,6 +33,7 @@
 </template>
 
 <script>
+import { Event } from '../bus'
 export default {
     name:"Content",
     data() {
@@ -64,9 +55,17 @@ export default {
                 username:'一棵草',
                 comment:'The greatest test of courage on earth is to bear defeat without losing heart.世界上對勇氣的最大考驗是忍受失敗而不喪失信心。'
             }
-        ]
+        ],
+            topic:{},
         }
-    }
+    },
+    mounted(){
+            Event.$on('totopic',showIndex => {  // $on接收发送方传给我们的数据
+            this.topic = showIndex.topiclog;
+            console.log(this.topic);
+    })
+}
+    
 }
 </script>
 <style scoped>
