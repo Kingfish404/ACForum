@@ -26,8 +26,9 @@
             </b-input>
         </b-field>
     </div>
-    <div class="input-box">
+    <div class="input-box inputButton">
         <b-button @click="toLogin()">Register</b-button>
+        <b-button @click="toLogin()">Sing In</b-button>
     </div>
     
   </div>
@@ -70,7 +71,12 @@ export default {
 </script>
 <style scoped>
 .input-box{
-  margin-top:20px;
-  margin-bottom:20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.inputButton{
+  display: flex;
+  justify-content: space-between;
+  align-items: center
 }
 </style>
