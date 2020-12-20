@@ -67,6 +67,8 @@ export default {
             var respond = Qs.parse(res.data);
             user.userID = respond.data.userID;
             this.$emit('showUser',user);
+
+            
         })
     },
     toRegister(){

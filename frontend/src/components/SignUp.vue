@@ -49,7 +49,11 @@ export default {
     toLogin() {
       if(this.password!=this.password1){
         alert("两次输入密码不一致,注册失败！")
-      }else{
+      }
+      else if(this.username==="" || this.password===""){
+        alert("用户名或密码不能为空");
+      }
+      else{
             axios({
             method: "post",
             url: "https://sql.tian999.top/signUp/",
