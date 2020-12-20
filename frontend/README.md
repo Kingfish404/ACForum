@@ -44,6 +44,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
              |- login.vue                         # 登录页面组件
              |- NavMenu.vue                       # 导航组件
              |- SignUp.vue                        # 注册页面组件
+             |- sendMsg                           # 发布讨论组件
          |- App.vue                               # 项目入口文件
          |- icon                                  # 存放图标文件
          |- main.js                               # 项目的核心文件
