@@ -28,7 +28,7 @@
     </div>
     <div class="input-box inputButton">
         <b-button @click="toLogin()">Register</b-button>
-        <b-button @click="goLogin()">Sing In</b-button>
+        <b-button @click="goLogin()">Sign In</b-button>
     </div>
     
   </div>

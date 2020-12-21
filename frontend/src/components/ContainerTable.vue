@@ -9,7 +9,6 @@
                         </td>
                         <td width="10"></td>
                         <td width="auto" hight="auto" valign="middle">                    
-                            <!-- <a id="item_title" style="front-size:25px"><div style="font-size:20px">{{topic.title}}</div></a> -->
                             <router-link to="/content" id="item_title" style="front-size:25px">
                             <div style="font-size:20px" @click="totopic(topic)">
                                 {{topic.title}}
@@ -30,7 +29,6 @@
 <script>
 import { Event } from '../bus'
 import axios from "axios";
-// import Qs from "qs";
 
     export default {
         props:["Topic"],
@@ -39,9 +37,6 @@ import axios from "axios";
 
             }
         },
-        // mounted(){
-        //     Event.$emit('mounted', this.Topic);
-        // },
         methods:{
             totopic(topic){
                 axios({
@@ -51,9 +46,9 @@ import axios from "axios";
                         topicID:topic.topicID,
                     }
                 }).then((res)=>{
-                    Event.$emit('totopic',res.data);
+                    Event.$emit('totopic',res.data,topic.topicID);
                 })
-            }
+            },
         }
     }
 </script>

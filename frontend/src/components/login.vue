@@ -28,6 +28,7 @@
 <script>
 import axios from "axios";
 import Qs from "qs";
+import { Event } from '../bus'
 
 export default {
   name: "SignIn",
@@ -78,6 +79,8 @@ export default {
           return;
         }
         console.log("登录成功");
+        // 用来识别是否能发评论
+        Event.$emit('signsuccess',true);   
         var user = { username: "", userID: "" };
         var jwttoken = "";
 
