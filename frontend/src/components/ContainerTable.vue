@@ -9,12 +9,15 @@
                         </td>
                         <td width="10"></td>
                         <td width="auto" hight="auto" valign="middle">                    
-                            <!-- <a id="item_title" style="front-size:25px"><div style="font-size:20px">{{topic.title}}</div></a> -->
-                            <router-link to="/content" id="item_title" style="front-size:25px"><div style="font-size:20px">{{topic.title}}</div></router-link>
+                            <router-link to="/content" id="item_title" style="front-size:25px">
+                            <div style="font-size:20px" @click="totopic(topic)">
+                                {{topic.title}}
+                            </div>
+                            </router-link>
                         </td>
-                        <td width="200" hight="10">
-                            <a id="username">{{topic.username}}</a><br>
-                            发布日期：<a id="data">{{topic.data}}</a>
+                        <td width="100" >
+                            <a id="username">{{topic.userName}}</a><br>
+                            <a id="data">{{topic.date}}</a>
                         </td>  
                     </tr>
                 </tbody>               
@@ -24,12 +27,28 @@
 </template>
 
 <script>
+import { Event } from '../bus'
+import axios from "axios";
+
     export default {
         props:["Topic"],
         data() {
             return {
 
             }
+        },
+        methods:{
+            totopic(topic){
+                axios({
+                    method:"get",
+                    url:"https://sql.tian999.top/getComment/",
+                    params:{
+                        topicID:topic.topicID,
+                    }
+                }).then((res)=>{
+                    Event.$emit('totopic',res.data,topic.topicID);
+                })
+            },
         }
     }
 </script>

@@ -10,12 +10,15 @@
 </template>
 
 <script>
+import { Event } from '../bus'
 export default {
   props:["user"],
   methods: {
       logout(){
+          Event.$emit('logout',false)
           document.getElementById("afterloginbox").style.display= "none";
           document.getElementById("loginbox").style.display= "block";
+
       }
   },
 };

@@ -26,8 +26,9 @@
             </b-input>
         </b-field>
     </div>
-    <div class="input-box">
+    <div class="input-box inputButton">
         <b-button @click="toLogin()">Register</b-button>
+        <b-button @click="goLogin()">Sign In</b-button>
     </div>
     
   </div>
@@ -49,7 +50,11 @@ export default {
     toLogin() {
       if(this.password!=this.password1){
         alert("两次输入密码不一致,注册失败！")
-      }else{
+      }
+      else if(this.username==="" || this.password===""){
+        alert("用户名或密码不能为空");
+      }
+      else{
             axios({
             method: "post",
             url: "https://sql.tian999.top/signUp/",
@@ -65,12 +70,22 @@ export default {
         })
       }
     },
+
+    goLogin(){
+        document.getElementById("signupbox").style.display= "none";
+        document.getElementById("loginbox").style.display= "block";
+    }
   },
 };
 </script>
 <style scoped>
 .input-box{
-  margin-top:20px;
-  margin-bottom:20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.inputButton{
+  display: flex;
+  justify-content: space-between;
+  align-items: center
 }
 </style>
