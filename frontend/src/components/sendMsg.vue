@@ -42,11 +42,14 @@
             ></el-input>
           </el-col>
           <el-col>
-            <el-button
-              @click="published"
-              style="margin-left: 380px; margin-top: 10px"
-              >发表主题</el-button
-            >
+            <router-link to="/content">
+              <el-button
+                @click="published"
+                style="margin-left: 380px; margin-top: 10px"
+              >
+                发表主题
+              </el-button>
+            </router-link>
           </el-col>
         </el-row>
       </el-card>
@@ -58,6 +61,7 @@
 <script>
 import axios from "axios";
 import Qs from "qs";
+import { Event } from "../bus";
 export default {
   data() {
     return {
@@ -104,15 +108,41 @@ export default {
             author: this.author1,
           }),
         }).then((res) => {
-          console.log(res.data);
           if (res.data.code === 200) {
+            axios({
+              methods: "get",
+              url: "https://sql.tian999.top/getCatalog/",
+            }).then((res) => {
+              var catastr = res.data.catalog;
+              for (var i = 0; i < catastr.length; i++) {
+                if (
+                  this.tabss[this.nowID].categoryID == catastr[i].categoryID
+                ) {
+                  for (var j = 0; j < catastr[i].topicArr.length; j++) {
+                    if (this.inputitle == catastr[i].topicArr[j].title) {
+                      this.changeid(catastr[i].topicArr[j],catastr[i].topicArr[j].topicID);
+                    }
+                  }
+                }
+              }
+            });
             alert("主题发表成功！！！");
-            this.$router.push({path:'/container'});
           }
         });
       else {
         alert("请输入主题内容与主题描述");
       }
+    },
+    changeid(str,topicid) {
+      axios({
+        method: "get",
+        url: "https://sql.tian999.top/getComment/",
+        params:{
+          topicID: str.topicID,
+        },
+      }).then((res) => {
+        Event.$emit("totopic", res.data,topicid);
+      });
     },
   },
 };

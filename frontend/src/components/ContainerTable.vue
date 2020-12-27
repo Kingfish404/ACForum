@@ -46,6 +46,8 @@ import axios from "axios";
                         topicID:topic.topicID,
                     }
                 }).then((res)=>{
+                    console.log(res.data);
+                    console.log(topic.topicID);
                     Event.$emit('totopic',res.data,topic.topicID);
                 })
             },

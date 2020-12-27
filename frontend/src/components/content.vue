@@ -61,6 +61,8 @@ export default {
     Event.$on("totopic", (showIndex, showIndex1) => {
       this.topic = showIndex.topiclog;
       this.topicid = showIndex1;
+      console.log(this.topic);
+      console.log(this.topicid);
     });
     Event.$on("logout", (showIndex2) => {
       this.seen = showIndex2;
