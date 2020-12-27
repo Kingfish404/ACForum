@@ -8,11 +8,21 @@
     </template>
     <template slot="start">
       <b-navbar-item>
-        <router-link to="container"> 主页 </router-link>
+        <router-link to="container" @click.native="backcontainer()"> 主页 </router-link>
       </b-navbar-item>
     </template>
   </b-navbar>
 </template>
+
+<script>
+export default {
+  methods:{
+    backcontainer(){
+      document.getElementById("sendtopic").style.display = "block";
+    }
+  }
+}
+</script>
 
 <style>
 #navbar-self {
@@ -29,3 +39,4 @@
   }
 }
 </style>
+

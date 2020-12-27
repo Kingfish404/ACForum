@@ -59,7 +59,12 @@ export default {
     signup,
     afterlogin,
   },
-
+  mounted(){
+    // if(this.$route.path === '/sendMsg')
+    // {
+    //   document.getElementById("sendtopic").style.display = "none";
+    // }
+  },
   methods: {
     toHomepage() {
       this.$router.push("/");
@@ -68,10 +73,17 @@ export default {
       this.user = user;
       document.getElementById("loginbox").style.display = "none";
       document.getElementById("afterloginbox").style.display = "block";
-      document.getElementById("sendtopic").style.display = "block";
+      if(this.$route.path != '/sendMsg')
+      {
+        document.getElementById("sendtopic").style.display = "block";
+      }
     },
-  },
-};
+    sendtopic(){
+      document.getElementById("sendtopic").style.display = "none";
+    }
+  }
+}
+
 </script>
 
 <style>

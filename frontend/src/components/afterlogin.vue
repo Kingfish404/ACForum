@@ -18,7 +18,7 @@ export default {
           Event.$emit('logout',false)
           document.getElementById("afterloginbox").style.display= "none";
           document.getElementById("loginbox").style.display= "block";
-
+          document.getElementById("sendtopic").style.display = "none";
       }
   },
 };
