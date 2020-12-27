@@ -59,6 +59,7 @@ export default {
         this.$emit("showUser", user);
       });
     }
+
   },
   methods: {
     toLogin() {
