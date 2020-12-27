@@ -42,14 +42,12 @@
             ></el-input>
           </el-col>
           <el-col>
-            <!-- <router-link to="/content"> -->
               <el-button
                 @click="published"
                 style="margin-left: 380px; margin-top: 10px"
               >
                 发表主题
               </el-button>
-            <!-- </router-link> -->
           </el-col>
         </el-row>
       </el-card>

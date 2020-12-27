@@ -35,12 +35,14 @@
         </table>
       </div>
     </div>
+    <div class="del"><b-button type="is-danger is-light" @click="del">删除主题</b-button></div>
     <sendcomment v-if="seen" :topicid="topicid"></sendcomment>
   </div>
 </template>
 
 <script>
 import axios from "axios";
+import Qs from "qs"
 import { Event } from "../bus";
 import sendcomment from "./sendcomment.vue";
 
@@ -93,6 +95,27 @@ export default {
       this.seen = showIndex3;
     });
   },
+  methods:{
+    del(){
+      var jwtToken;
+      jwtToken = localStorage.getItem("jwttoken");
+      axios({
+      method: "post",
+      url: "https://sql.tian999.top/deleteTopic/",
+      data: Qs.stringify({
+        jwttoken:jwtToken,
+        topicID:this.topicid,
+      }),
+    }).then((res) => {
+        if(res.data.message == "success"){
+          alert("删除主题成功！")
+          this.$router.push({path:'/container'});
+        }else{
+          alert("您不能删除该主题！")
+        }
+    });
+    }
+  }
 };
 </script>
 <style scoped>

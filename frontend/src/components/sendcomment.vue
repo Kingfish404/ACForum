@@ -10,8 +10,7 @@
       ></b-input>
     </b-field>
     <div class="btn">
-      <b-button type="is-link is-light" @click="sendcomm">发表评论</b-button
-      ><br />
+      <b-button type="is-link is-light" @click="sendcomm">发表评论</b-button>
     </div>
   </div>
 </template>
