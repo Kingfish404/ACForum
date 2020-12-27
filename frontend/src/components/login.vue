@@ -54,6 +54,7 @@ export default {
       }).then((res) => {
         var user = { username: "", userID: "" };
         user.username = res.data.data.username;
+        localStorage.setItem("username",user.username);
         // user.username = res.data.data.userID;
         this.$emit("showUser", user);
       });
@@ -94,6 +95,8 @@ export default {
         console.log(jwttoken);
 
         localStorage.setItem("jwttoken", jwttoken);
+        localStorage.setItem("username",this.username);
+        localStorage.setItem("userID",this.userID);
       });
     },
     toRegister() {
