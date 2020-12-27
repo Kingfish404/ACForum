@@ -19,7 +19,7 @@
 
     <div class="box">
       <div class="cell2">
-        <span class="gray">{{ topic.commentArr.length }}条评论</span>
+        <span class="gray">{{lencom}}条评论</span>
         <table cellpadding="0" cellspacing="0" border="0" width="100%">
           <tr v-for="(comment, index) in topic.commentArr" :key="index">
             <td width="7" valign="top"></td>
@@ -55,32 +55,42 @@ export default {
       seen: true,
       topicid: 0,
       category: "",
+      lencom:0,
     };
   },
-  mounted() {
-    Event.$on("totopic", (showIndex, showIndex1) => {
-      this.topic = showIndex.topiclog;
-      this.topicid = showIndex1;
-      console.log(this.topic);
-      console.log(this.topicid);
-    });
-    Event.$on("logout", (showIndex2) => {
-      this.seen = showIndex2;
-    });
-    Event.$on("signsuccess", (showIndex3) => {
-      this.seen = showIndex3;
-    });
+  created() {
     axios({
       method: "get",
       url: "https://sql.tian999.top/getCatalog/",
       params: {},
     }).then((res) => {
-        var len = res.data.catalog.length;
+        if(res.data.catalog){
+          var len = res.data.catalog.length;
+        }
       for (var i = 0; i < len; i++) {
         if (this.topic.categoryID == res.data.catalog[i].categoryID) {
           this.category = res.data.catalog[i].categoryName;
         }
       }
+    });
+    this.topicid = this.$route.query.topicid;
+    axios({
+        method: "get",
+        url: "https://sql.tian999.top/getComment/",
+        params :{
+          topicID: this.topicid,
+        },
+    }).then((res)=>{
+      this.topic = res.data.topiclog;
+      this.lencom = this.topic.commentArr.length;
+    });
+  },
+  mounted() {
+    Event.$on("logout", (showIndex2) => {
+      this.seen = showIndex2;
+    });
+    Event.$on("signsuccess", (showIndex3) => {
+      this.seen = showIndex3;
     });
   },
 };

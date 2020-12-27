@@ -59,6 +59,11 @@ export default {
     signup,
     afterlogin,
   },
+  provide() { // 注册一个方法
+    return {
+      reload: this.reload
+    }
+  },
   mounted(){
     // if(this.$route.path === '/sendMsg')
     // {
@@ -66,6 +71,12 @@ export default {
     // }
   },
   methods: {
+    reload() {
+      this.isRouterAlive = false
+      this.$nextTick(function() {
+        this.isRouterAlive = true
+      })
+    },
     toHomepage() {
       this.$router.push("/");
     },

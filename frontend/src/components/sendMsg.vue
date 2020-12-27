@@ -42,14 +42,14 @@
             ></el-input>
           </el-col>
           <el-col>
-            <router-link to="/content">
+            <!-- <router-link to="/content"> -->
               <el-button
                 @click="published"
                 style="margin-left: 380px; margin-top: 10px"
               >
                 发表主题
               </el-button>
-            </router-link>
+            <!-- </router-link> -->
           </el-col>
         </el-row>
       </el-card>
@@ -61,7 +61,6 @@
 <script>
 import axios from "axios";
 import Qs from "qs";
-import { Event } from "../bus";
 export default {
   data() {
     return {
@@ -120,7 +119,11 @@ export default {
                 ) {
                   for (var j = 0; j < catastr[i].topicArr.length; j++) {
                     if (this.inputitle == catastr[i].topicArr[j].title) {
-                      this.changeid(catastr[i].topicArr[j],catastr[i].topicArr[j].topicID);
+                      this.$router.push({
+                      path: "/content",
+                      name: "Content",
+                      query: {topicid: catastr[i].topicArr[j].topicID,},
+                      });
                     }
                   }
                 }
@@ -132,17 +135,6 @@ export default {
       else {
         alert("请输入主题内容与主题描述");
       }
-    },
-    changeid(str,topicid) {
-      axios({
-        method: "get",
-        url: "https://sql.tian999.top/getComment/",
-        params:{
-          topicID: str.topicID,
-        },
-      }).then((res) => {
-        Event.$emit("totopic", res.data,topicid);
-      });
     },
   },
 };

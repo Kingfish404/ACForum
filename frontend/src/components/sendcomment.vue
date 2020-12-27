@@ -41,8 +41,9 @@ export default {
             topicID: this.topicid,
           }),
         }).then((res) => {
-          console.log(res.date);
-          alert("评论发表成功！！！")
+          console.log(res.data);
+          alert("评论发表成功！！！");
+          window.location.reload();
         });
       } else {
         alert("评论为空请输入内容再发表！！！");
