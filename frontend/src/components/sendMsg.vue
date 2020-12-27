@@ -18,19 +18,35 @@
     <div>
       <el-card class="box-card">
         <el-row :gutter="30">
-          <el-col :span="3" style="padding-left: 5px; padding-right:5px; padding-top: 3px;">
-            <el-tag size="medium" style="margin:0px">主题</el-tag>
+          <el-col
+            :span="3"
+            style="padding-left: 5px; padding-right: 5px; padding-top: 3px"
+          >
+            <el-tag size="medium" style="margin: 0px">主题</el-tag>
           </el-col>
-          <el-col :span="8" style="padding-left:0px; padding-right: 0px;">
-            <el-input v-model="inputitle" placeholder="请输入主题" size="medium"></el-input>
+          <el-col :span="8" style="padding-left: 0px; padding-right: 0px">
+            <el-input
+              v-model="inputitle"
+              placeholder="请输入主题"
+              size="medium"
+            ></el-input>
           </el-col>
         </el-row>
         <el-row :gutter="30">
-          <el-col :span="20" style="padding-left:25px;margin-top:20px;">
-            <el-input v-model="inputitledes" type="textarea" :rows="18" placeholder="请输入主题描述"></el-input>
+          <el-col :span="20" style="padding-left: 25px; margin-top: 20px">
+            <el-input
+              v-model="inputitledes"
+              type="textarea"
+              :rows="18"
+              placeholder="请输入主题描述"
+            ></el-input>
           </el-col>
           <el-col>
-            <el-button @click="published" style="margin-left:380px;margin-top:10px;">发表主题</el-button>
+            <el-button
+              @click="published"
+              style="margin-left: 380px; margin-top: 10px"
+              >发表主题</el-button
+            >
           </el-col>
         </el-row>
       </el-card>
@@ -49,7 +65,7 @@ export default {
       nowID: "0",
       inputitle: "",
       inputitledes: "",
-      author1: "username"
+      author1: "",
     };
   },
   created() {
@@ -59,8 +75,8 @@ export default {
     gettabs() {
       axios({
         method: "get",
-        url: "https://sql.tian999.top/getCatalog/"
-      }).then(res => {
+        url: "https://sql.tian999.top/getCatalog/",
+      }).then((res) => {
         var respond = Qs.parse(res.data.catalog);
         this.tabss = respond;
       });
@@ -75,6 +91,7 @@ export default {
     published() {
       var jwtToken;
       jwtToken = localStorage.getItem("jwttoken");
+      this.author1 = localStorage.getItem("username");
       if (this.inputitledes && this.inputitle)
         axios({
           method: "post",
@@ -84,17 +101,20 @@ export default {
             title: this.inputitle,
             description: this.inputitledes,
             categoryID: this.tabss[this.nowID].categoryID,
-            author: this.author1
-          })
-        }).then(res => {
-          alert("主题发表成功！！！");
-          console.log(res);
+            author: this.author1,
+          }),
+        }).then((res) => {
+          console.log(res.data);
+          if (res.data.code === 200) {
+            alert("主题发表成功！！！");
+            this.$router.push({path:'/container'});
+          }
         });
       else {
         alert("请输入主题内容与主题描述");
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
