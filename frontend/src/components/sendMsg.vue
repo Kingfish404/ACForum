@@ -53,7 +53,7 @@ export default {
     };
   },
   created() {
-    this.gettabs();
+    this.gettabs(); 
   },
   methods: {
     gettabs() {
@@ -112,4 +112,5 @@ export default {
 .tab-content {
   display: none;
 }
+
 </style>

@@ -37,9 +37,7 @@ import Qs from 'qs';
                 }).then((res)=> {
                     var respond = Qs.parse(res.data.catalog);
                     this.tabss = respond;
-                    console.log(this.tabss);
                 })
-                // return this.tabss;
             }    
         }
     }

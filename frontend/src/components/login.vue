@@ -69,7 +69,6 @@ export default {
           password: this.password,
         }),
       }).then((res) => {
-        console.log(res.data);
         if (res.data.message == "password error") {
           alert("密码错误");
           return;

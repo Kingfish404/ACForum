@@ -1,6 +1,6 @@
 <template>
-    <div >
-        <div v-for="topic in Topic" :key="topic"  class="cell item" style>
+    <div>
+        <div v-for="topic in this.Topics" :key="topic.topicID"  class="cell item" style>
             <table cellpadding="0" cellspacing="0" border="0" width="100%">
                 <tbody>
                     <tr>
@@ -32,10 +32,13 @@ import axios from "axios";
 
     export default {
         props:["Topic"],
-        data() {
-            return {
-
+        data(){
+            return{
+                Topics:[]
             }
+        },
+        created(){
+            this.getTopics();    
         },
         methods:{
             totopic(topic){
@@ -49,6 +52,16 @@ import axios from "axios";
                     Event.$emit('totopic',res.data,topic.topicID);
                 })
             },
+
+            getTopics(){
+                var l=this.Topic.length;
+                var count=0;
+                for(var i=l-1;i>=0;i--)
+                {
+                    this.Topics[count] = this.Topic[i];
+                    count++;
+                }
+            }
         }
     }
 </script>
