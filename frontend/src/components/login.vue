@@ -54,8 +54,9 @@ export default {
       }).then((res) => {
         var user = { username: "", userID: "" };
         user.username = res.data.data.username;
+        user.userID = res.data.data.userID;
         localStorage.setItem("username",user.username);
-        // user.username = res.data.data.userID;
+        localStorage.setItem("userID",user.userID);
         this.$emit("showUser", user);
       });
     }
