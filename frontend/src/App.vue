@@ -59,12 +59,13 @@ export default {
     signup,
     afterlogin,
   },
-  provide() { // 注册一个方法
+  provide() {
+    // 注册一个方法
     return {
-      reload: this.reload
-    }
+      reload: this.reload,
+    };
   },
-  mounted(){
+  mounted() {
     // if(this.$route.path === '/sendMsg')
     // {
     //   document.getElementById("sendtopic").style.display = "none";
@@ -72,10 +73,10 @@ export default {
   },
   methods: {
     reload() {
-      this.isRouterAlive = false
-      this.$nextTick(function() {
-        this.isRouterAlive = true
-      })
+      this.isRouterAlive = false;
+      this.$nextTick(function () {
+        this.isRouterAlive = true;
+      });
     },
     toHomepage() {
       this.$router.push("/");
@@ -84,17 +85,15 @@ export default {
       this.user = user;
       document.getElementById("loginbox").style.display = "none";
       document.getElementById("afterloginbox").style.display = "block";
-      if(this.$route.path != '/sendMsg')
-      {
+      if (this.$route.path != "/sendMsg") {
         document.getElementById("sendtopic").style.display = "block";
       }
     },
-    sendtopic(){
+    sendtopic() {
       document.getElementById("sendtopic").style.display = "none";
-    }
-  }
-}
-
+    },
+  },
+};
 </script>
 
 <style>
@@ -148,7 +147,7 @@ body {
 }
 
 .box {
-  background-color:white;
+  background-color: white;
   border-radius: var(--box-border-radius);
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
   border-bottom: 1px solid var(--box-border-color);
@@ -156,6 +155,7 @@ body {
 
 #BOX {
   padding: 0;
+  white-space: break-spaces;
 }
 
 @media screen and (max-width: 760px) {
